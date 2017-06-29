@@ -16,5 +16,25 @@ namespace DevExpressBug
         {
             InitializeComponent();
         }
+
+        private void bFill_Click(object sender, EventArgs e)
+        {
+            List<MyData> data = new List<MyData>();
+            for (int i = 0; i < 200; i++)
+            {
+                data.Add(new MyData { Name = $"Elemet{i}", Value = 0 });
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                data[9 - i].Value = i * 10;
+            }
+
+            gridControl1.DataSource = data;
+        }
+
+        private void bRef_Click(object sender, EventArgs e)
+        {
+            gridControl1.RefreshDataSource();
+        }
     }
 }
